@@ -3,14 +3,13 @@ import 'package:random_user/random_user.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<User>> fetchUsers() async {
-  Uri url = Uri.parse('https://dummyjson.com/users?limit=12');
+  Uri url = Uri.parse('https://random-data-api.com/api/v2/users?size=12');
 
   final http.Response response = await http.get(url);
   try {
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response, then parse the JSON.
-      final Map<String, dynamic> jsonData = jsonDecode(response.body);
-      final List<dynamic> users = jsonData['users'];
+      final List<dynamic> users = jsonDecode(response.body);
 
       return users.map((user) => User.fromJson(user)).toList();
     } else {

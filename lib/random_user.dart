@@ -7,8 +7,8 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> dataMap) {
     int id = dataMap['id'] ?? 0;
-    String firstName = dataMap['firstName'] ?? '';
-    String lastName = dataMap['lastName'] ?? '';
+    String firstName = dataMap['first_name'] ?? '';
+    String lastName = dataMap['last_name'] ?? '';
 
     return User(id: id, firstName: firstName, lastName: lastName);
   }
